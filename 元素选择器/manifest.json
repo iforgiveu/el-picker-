@@ -1,0 +1,58 @@
+{
+  "manifest_version": 3,
+  "name": "元素选择器",
+  "version": "1.0.0",
+  "description": "选择元素，支持Shadow DOM",
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "scripting",
+	"declarativeNetRequest" 
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+	  "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [{
+    "resources": ["injectclipboard.js"],
+    "matches": ["<all_urls>"]
+  }],
+  "action": {
+    "default_popup": "popup.html",
+	"default_icon": {
+      "48": "icon.png"
+    }
+  },
+  "icons": {
+    "48": "icon.png"
+  },
+  
+  "commands": {
+    "activate-picker": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "激活元素选择器"
+    }
+  },
+   "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "remove_csp",
+        "enabled": false, 
+        "path": "csp_rules.json"
+      }
+    ]
+  }
+}

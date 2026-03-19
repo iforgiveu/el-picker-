@@ -1,0 +1,30 @@
+#element-picker-overlay {
+  position: fixed;
+  pointer-events: none;
+  z-index: 999999;
+  border: 2px solid #ff4444;
+  background: rgba(255, 68, 68, 0.1);
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.3);
+  transition: all 0.1s ease;
+}
+
+#element-picker-tooltip {
+  position: fixed;
+  z-index: 1000000;
+  background: #1e293b;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 13px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  border: 1px solid #475569;
+  min-width: 240px;
+  pointer-events: auto;
+}
+
+#element-picker-tooltip button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  transition: all 0.2s;
+}

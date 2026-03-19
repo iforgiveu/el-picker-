@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 300px;
+            padding: 16px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #ffffff;
+            margin: 0;
+        }
+        h3 {
+            margin: 0 0 16px 0;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s;
+            margin-bottom: 16px;
+        }
+        button:hover {
+            background: #1d4ed8;
+        }
+        .shortcut {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 13px;
+            color: #475569;
+        }
+        .shortcut-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        kbd {
+            background: #e2e8f0;
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-family: monospace;
+            font-size: 12px;
+            color: #1e293b;
+        }
+        .footer {
+            margin-top: 16px;
+            font-size: 12px;
+            color: #94a3b8;
+            text-align: center;
+        }
+		.switch {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    }
+    .switch label {
+      margin-left: 8px;
+      cursor: pointer;
+    }
+    .status {
+      font-size: 12px;
+      margin-top: 10px;
+      padding: 8px;
+      background: #f5f5f5;
+      border-radius: 4px;
+    }
+    .enabled {
+      color: #4caf50;
+      font-weight: bold;
+    }
+    .disabled {
+      color: #f44336;
+      font-weight: bold;
+    }
+    .warning {
+      color: #ff9800;
+      font-size: 11px;
+      margin-top: 10px;
+      padding: 8px;
+      background: #fff3e0;
+      border-radius: 4px;
+      display: none;
+    }
+    .site-info {
+      background: #e3f2fd;
+      padding: 8px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      word-break: break-all;
+      font-size: 12px;
+    }
+    </style>
+</head>
+<body>
+    <h3>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" style="color: #2563eb;">
+            <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H4zm2 2a1 1 0 100 2h6a1 1 0 100-2H6zm0 3a1 1 0 100 2h6a1 1 0 100-2H6zm0 3a1 1 0 100 2h6a1 1 0 100-2H6z" clip-rule="evenodd"/>
+        </svg>
+        智能元素选择器
+    </h3>
+    
+    <button id="activatePicker">
+        <span>🔍</span> 在当前页面激活选择器
+    </button>
+	<div class="site-info" id="siteInfo">
+    正在加载当前网站信息...
+  </div>
+
+  <div class="switch">
+    <input type="checkbox" id="disableCSP">
+    <label for="disableCSP">⚠️ 禁用当前网站的CSP(测试)</label>
+  </div>
+
+  <div class="status">
+    当前状态: <span id="cspStatus" class="disabled">未禁用</span>
+  </div>
+    
+    <div class="shortcut">
+        <div class="shortcut-item">
+            <span>激活选择器的快捷键</span>
+            <kbd>Ctrl+Shift+Y</kbd>
+        </div>
+        <div class="shortcut-item">
+            <span>选择祖先</span>
+            <kbd>+</kbd> 或 <kbd>滚轮向上</kbd>
+        </div>
+        <div class="shortcut-item">
+            <span>选择后代</span>
+            <kbd>-</kbd> 或 <kbd>滚轮向下</kbd>
+        </div>
+        <div class="shortcut-item">
+            <span>确认选择</span>
+            <kbd>小键盘数字0</kbd>
+        </div>
+        <div class="shortcut-item">
+            <span>退出</span>
+            <kbd>ESC</kbd>
+        </div>
+    </div>
+    
+    <div class="footer">
+        右键菜单也可激活 · 悬浮窗点击定位到DevTools
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
