@@ -1024,7 +1024,8 @@ function handleClick(e) {
 }
 
 function handleKeyDown(e) {
-    if (e.isTrusted === false) return;
+    if (!(currentState === 'b' || currentState === 'd')) return;
+	if (e.isTrusted === false) return;
     
     if (e.key === 'Escape' || e.key === '`' || e.key === 'Backquote') {
         e.preventDefault();
