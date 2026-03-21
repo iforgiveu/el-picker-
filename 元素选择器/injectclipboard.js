@@ -3,3 +3,4 @@ window.CopyAdgRuleToClipboard = function(text) {
         console.error('复制失败:', err);
     });
 };
+
